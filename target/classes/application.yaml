@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: lab_4
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ForSpring
+    username: myuser
+    password: mypassword
+  jpa:
+    hibernate:
+      ddl-auto: update
+    
+    show-sql: false
+    properties:
+      hibernate: 
+        "[format_sql]": true
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    cache: false
