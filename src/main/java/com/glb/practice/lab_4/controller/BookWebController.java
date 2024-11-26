@@ -1,4 +1,4 @@
-package com.glb.practice.lab_4.controller_2;
+package com.glb.practice.lab_4.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +14,7 @@ import org.springframework.ui.Model;
 @RestController
 @RequestMapping("/books")
 public class BookWebController {
-    BookModel bookModel = BookModel.getInstance();
+    
 
     // @GetMapping({"/",""})
     // public String getBooks(Model model) {
@@ -23,6 +23,7 @@ public class BookWebController {
     // }
     @GetMapping("/{id}")
     public String getBook(@PathVariable int id) {
+        BookModel bookModel = BookModel.getInstance();
         System.out.println("Requested book ID: " + id);
         Book book = bookModel.getBookById(id);
         if (book == null) {

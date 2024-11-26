@@ -1,7 +1,7 @@
 package com.glb.practice.lab_4.model;
 import java.util.ArrayList;
 import java.util.List;
-import com.glb.practice.lab_4.controller.MainViewController;
+// import com.glb.practice.lab_4.controller.MainViewController;
 import com.glb.practice.lab_4.repository.*;
 public class BookModel implements Observable{
     private static BookModel bm;
@@ -14,8 +14,8 @@ public class BookModel implements Observable{
         return bm;
     }
     private BookModel(){
-        MainViewController mvc=MainViewController.getInstance();
-        addObserver(mvc);
+        // MainViewController mvc=MainViewController.getInstance();
+        // addObserver(mvc);
     }
 
     public  void addBook(Book book){
