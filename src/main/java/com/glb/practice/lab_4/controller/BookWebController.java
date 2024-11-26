@@ -11,27 +11,16 @@ import com.glb.practice.lab_4.model.BookModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
-@RestController
+@Controller
 @RequestMapping("/books")
 public class BookWebController {
-    
+    BookModel bookModel = BookModel.getInstance();
 
-    // @GetMapping({"/",""})
-    // public String getBooks(Model model) {
-    // model.addAttribute("books", bookModel.get_k_n_shortList(0,30));
-    // return "books";
-    // }
-    @GetMapping("/{id}")
-    public String getBook(@PathVariable int id) {
-        BookModel bookModel = BookModel.getInstance();
-        System.out.println("Requested book ID: " + id);
-        Book book = bookModel.getBookById(id);
-        if (book == null) {
-            System.out.println("Book not found for ID: " + id);
-            return "Book not found"; // Это вернется как JSON, так как используется @RestController
-        }
-        System.out.println("Found book: " + book);
-        return book.toJson();
+    @GetMapping({"/",""})
+    public String getBooks(Model model) {
+        model.addAttribute("books", bookModel.get_k_n_shortList(0,30));
+        return "books";
     }
+    
 
 }

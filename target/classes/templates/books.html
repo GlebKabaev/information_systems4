@@ -4,6 +4,7 @@
     <title>Список книг</title>
 </head>
 <body>
+        <div th:insert="~{layout :: content}"></div>
         <h2>Список книг</h2>
     <body> 
     <table>
@@ -13,9 +14,6 @@
                 <th>Название</th>
                 <th>Автор</th>
                 <th>Жанр</th>
-                <th>Количество</th>
-                <th>Депозит</th>
-                <th>Стоимость аренды</th>
                 <th>Действия</th>
             </tr>
         </thead>
@@ -25,9 +23,6 @@
                 <td th:text="${book.title}">Название</td>
                 <td th:text="${book.author}">Автор</td>
                 <td th:text="${book.genre}">Жанр</td>
-                <td th:text="${book.quantity}">Количество</td>
-                <td th:text="${book.depositAmount}">Депозит</td>
-                <td th:text="${book.rentalCost}">Стоимость аренды</td>
                 <td>
                     <a th:href="@{/books/{id}(id=${book.id})}">Просмотр</a>
                     <a th:href="@{/books/edit/{id}(id=${book.id})}">Редактировать</a>
