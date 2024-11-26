@@ -101,13 +101,14 @@ public class ShortBook {
     //toString method
     @Override
     public String toString() {
-        return "Book{" +
-                "id='" + id + '\'' +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", genre='" + genre + '\''+"}";
-                
+        return "{" +
+                "\"id\": \"" + id + "\"," +
+                "\"title\": \"" + title + "\"," +
+                "\"author\": \"" + author + "\"," +
+                "\"genre\": \"" + genre + "\"" +
+                "}";
     }
+
     
    
     //validate methods
