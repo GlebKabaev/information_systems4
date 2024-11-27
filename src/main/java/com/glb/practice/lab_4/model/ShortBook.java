@@ -26,6 +26,9 @@ public class ShortBook {
         }
         
     }
+    public ShortBook(){
+        
+    }
     public ShortBook(String jsonData) {
         // Парсим строку вручную
         String[] parts = jsonData.replace("{", "").replace("}", "").replace("\"", "").split(",");
