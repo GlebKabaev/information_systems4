@@ -2,9 +2,13 @@ package com.glb.practice.lab_4.controller;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.glb.practice.lab_4.model.Book;
 import com.glb.practice.lab_4.model.BookModel;
 
 import org.springframework.stereotype.Controller;
@@ -17,7 +21,7 @@ public class BookWebController {
 
     @GetMapping({"/",""})
     public String getBooks(Model model) {
-        model.addAttribute("books", bookModel.get_k_n_shortList(0,30));
+        model.addAttribute("books", bookModel.get_k_n_shortList(0,Integer.MAX_VALUE));
         return "books";
     }
     @GetMapping({"/{id}","/{id}/"})
@@ -31,4 +35,24 @@ public class BookWebController {
         return "books";
     }
 
+    @GetMapping({"/new","/new/"})
+    public String formNewBook(Model model) {
+       // Book book =new Book(0,"","","",0,0,0);//а так нормально вообще?
+        model.addAttribute("book", new Book());
+        return "book_add_edit"; 
+    }
+    @PostMapping({"/save_book", "/save_book/"})
+    public String saveBook(
+        @RequestParam("title") String title,
+        @RequestParam("author") String author,
+        @RequestParam("genre") String genre,
+        @RequestParam("quantity") int quantity,
+        @RequestParam("depositAmount") double depositAmount,
+        @RequestParam("rentalCost") double rentalCost) {
+
+    Book book = new Book(0, title, author, genre, quantity, depositAmount, rentalCost);
+    bookModel.addBook(book);
+
+    return "redirect:/books";
+}
 }
