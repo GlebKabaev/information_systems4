@@ -19,6 +19,10 @@ public class Book extends ShortBook {
         this.depositAmount =validateNumberField(depositAmount);
         this.rentalCost = validateNumberField(rentalCost);
     }
+    public Book(){
+        
+    }
+    
     public Book(String jsonData) {
         super(jsonData);
         // Убираем фигурные скобки и разделяем строку по запятым
