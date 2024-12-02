@@ -2,7 +2,6 @@ package com.glb.practice.lab_4.controller;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,9 +38,28 @@ public class BookWebController {
     public String formNewBook(Model model) {
        // Book book =new Book(0,"","","",0,0,0);//а так нормально вообще?
         model.addAttribute("book", new Book());
-        return "book_add_edit"; 
+        return "book_add"; 
     }
-    @PostMapping({"/save_book", "/save_book/"})
+    @GetMapping({"/edit/{id}","/edit/{id}/"})
+    public String formEditBook(Model model, @PathVariable int id) {
+        Book book = bookModel.getBookById(id);
+        model.addAttribute("book", book);
+        return "book_edit"; 
+    }
+    
+    @PostMapping({"/update/{id}","/update/{id}/"})
+    public String formEditBook(@PathVariable int id,
+        @RequestParam("title") String title,
+        @RequestParam("author") String author,
+        @RequestParam("genre") String genre,
+        @RequestParam("quantity") int quantity,
+        @RequestParam("depositAmount") double depositAmount,
+        @RequestParam("rentalCost") double rentalCost) {
+            Book book = new Book(id,title,author,genre,quantity,depositAmount,rentalCost);
+            bookModel.updateBookById(id, book);
+            return "redirect:/books";
+    }
+    @PostMapping({"/save", "/save/"})
     public String saveBook(
         @RequestParam("title") String title,
         @RequestParam("author") String author,
@@ -50,9 +68,9 @@ public class BookWebController {
         @RequestParam("depositAmount") double depositAmount,
         @RequestParam("rentalCost") double rentalCost) {
 
-    Book book = new Book(0, title, author, genre, quantity, depositAmount, rentalCost);
-    bookModel.addBook(book);
+            Book book = new Book(0, title, author, genre, quantity, depositAmount, rentalCost);
+            bookModel.addBook(book);
 
-    return "redirect:/books";
-}
+        return "redirect:/books";
+    }
 }
