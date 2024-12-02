@@ -1,0 +1,13 @@
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/App.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/controller/BookWebController.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/controller/Observer.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/controller/RestBookWebController.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/model/Book.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/model/BookModel.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/model/Observable.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/model/ShortBook.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/repository/Book_rep_DB.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/repository/ExtendRep.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/repository/Repository.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/repository/RepositoryDecorator.java
+/home/gleb/java/spring4/my-spring-project/src/main/java/com/glb/practice/lab_4/repository/SortableRepository.java

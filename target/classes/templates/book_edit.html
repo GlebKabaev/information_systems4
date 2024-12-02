@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'Редактировать книгу'"></title>
+</head>
+<body>
+    <div th:insert="~{layout :: content}"></div>
+    <div class="container">
+        <h2 th:text="'Редактировать книгу'"></h2>
+            <form th:action="@{/books/update/{id}(id=${book.id})}" method="post">
+            <input type="hidden" id="id" name="id" th:value="${book.id}" />
+            
+            <label for="title">Название:</label>
+            <input type="text" id="title" name="title" placeholder="Введите название книги" th:value="${book.title}" required />
+        
+            <label for="author">Автор:</label>
+            <input type="text" id="author" name="author" placeholder="Введите автора" th:value="${book.author}" required />
+        
+            <label for="genre">Жанр:</label>
+            <input type="text" id="genre" name="genre" placeholder="Введите жанр" th:value="${book.genre}" required />
+        
+            <label for="quantity">Количество:</label>
+            <input type="number" id="quantity" name="quantity" placeholder="Введите количество" th:value="${book.quantity}" required />
+        
+            <label for="depositAmount">Депозит:</label>
+            <input type="number" step="0.01" id="depositAmount" name="depositAmount" placeholder="Введите сумму депозита" th:value="${book.depositAmount}" required />
+        
+            <label for="rentalCost">Стоимость аренды:</label>
+            <input type="number" step="0.01" id="rentalCost" name="rentalCost" placeholder="Введите стоимость аренды" th:value="${book.rentalCost}" required />
+        
+            <button type="submit">Сохранить изменения</button>
+        </form>
+        <a class="back-link" th:href="@{/books}">Вернуться к списку книг</a>
+    </div>
+</body>
+</html>
