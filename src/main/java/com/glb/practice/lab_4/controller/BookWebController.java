@@ -15,7 +15,7 @@ import org.springframework.ui.Model;
 
 @Controller
 @RequestMapping("/books")
-public class BookWebController {
+public class BookWebController implements BookController {
     BookModel bookModel = BookModel.getInstance();
 
     @GetMapping({"/",""})
@@ -48,7 +48,7 @@ public class BookWebController {
     }
     
     @PostMapping({"/update/{id}","/update/{id}/"})
-    public String formEditBook(@PathVariable int id,
+    public String formUpdateBook(@PathVariable int id,
         @RequestParam("title") String title,
         @RequestParam("author") String author,
         @RequestParam("genre") String genre,
